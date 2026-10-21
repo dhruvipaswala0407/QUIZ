@@ -1,0 +1,129 @@
+:root {
+    --bg-dark: #0f0404;
+    --bg-card: #180909;
+    --bg-card-hover: #260e0e;
+    --crimson-primary: #b51d1d;
+    --crimson-glow: #ff1a40;
+    --gold-accent: #ffd700;
+    --gold-subtle: #d4af37;
+    --text-main: #f8f9fa;
+    --text-muted: #b0a0a0;
+    --border-glow: rgba(255, 26, 64, 0.25);
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Inter', sans-serif;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    font-family: var(--font-body);
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+.navbar-brand {
+    font-family: var(--font-heading);
+    font-weight: 800;
+    font-size: 1.75rem;
+    color: #fff;
+    letter-spacing: 0.5px;
+}
+
+.navbar-brand span {
+    color: var(--crimson-glow);
+    text-shadow: 0 0 12px rgba(255, 26, 64, 0.6);
+}
+
+.navbar-nav .nav-link.active {
+    color: var(--gold-accent);
+    text-shadow: 0 0 8px rgba(255, 215, 0, 0.4);
+}
+
+.nav-link {
+    color: var(--text-main);
+}
+
+.nav-link:hover {
+    color: var(--gold-accent)
+}
+
+.nav-link.dropdown-toggle.show {
+    color: var(--gold-accent);
+}
+
+.card-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: var(--text-muted);
+    text-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+}
+
+.fram {
+    width: 100px;
+}
+
+.hero-main-card {
+    background: linear-gradient(135deg, #180305 0%, #0d0102 100%);
+    border: 1px solid rgba(220, 53, 69, 0.3);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+}
+
+.cards-stack-wrapper {
+    position: relative;
+    height: 380px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.stacked-card {
+    position: absolute;
+    width: 260px;
+    border-radius: 16px;
+    padding: 20px;
+    background: rgba(25, 6, 8, 0.85);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
+    transition: all 0.4s ease;
+}
+
+.stacked-card:hover {
+    transform: translateY(-10px) scale(1.05);
+    z-index: 10;
+    border-color: #ff2a4b;
+    box-shadow: 0 20px 35px rgba(220, 53, 69, 0.4);
+}
+
+.card-back-left {
+    top: 20px;
+    left: 5%;
+    transform: rotate(-10deg);
+    z-index: 1;
+    background: linear-gradient(145deg, #2b080c, #140305);
+    border-color: rgba(220, 53, 69, 0.2);
+}
+
+.card-back-right {
+    bottom: 20px;
+    right: 5%;
+    transform: rotate(12deg);
+    z-index: 2;
+    background: linear-gradient(145deg, #1f0508, #0a0102);
+    border-color: rgba(255, 193, 7, 0.2);
+}
+
+.card-center {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-2deg);
+    z-index: 3;
+    background: linear-gradient(145deg, #3d0a10, #1f0407);
+    border: 1px solid rgba(255, 42, 75, 0.5);
+}
+
+.glow-title {
+    color: #ff2a4b;
+    text-shadow: 0 0 15px rgba(255, 42, 75, 0.4);
+}
