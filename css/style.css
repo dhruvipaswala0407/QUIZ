@@ -86,7 +86,7 @@ body {
     backdrop-filter: blur(12px);
     border: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
-    transition: all 0.4s ease;
+    transition: all 1s ease;
 }
 
 .stacked-card:hover {
@@ -126,4 +126,11 @@ body {
 .glow-title {
     color: #ff2a4b;
     text-shadow: 0 0 15px rgba(255, 42, 75, 0.4);
+}
+.card{
+    transition: all 0.5s ease;
+}
+.card:hover{
+    transform: rotate(-2deg) translateY(-10px) scale(1.05);
+    box-shadow: 0 20px 35px rgba(220, 53, 69, 0.4);
 }
