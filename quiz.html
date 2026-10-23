@@ -31,7 +31,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                            <a class="nav-link" aria-current="page" href="./index.html">Home</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
@@ -69,21 +69,59 @@
         </nav>
     </header>
     <main>
-        <section class="quizdetails" id="quizdetails">
+        <section class="quizdetails d-none" id="quizdetails">
             <div class="container my-5">
-               <div class="hero-main-card text-center rounded-4">
-                <div class="card-header glow-title py-2 display-6" id="cardHeader">
+                <div class="hero-main-card rounded-4">
+                    <div class="card-header glow-title py-2 display-6 m-3" id="cardHeader"></div>
+                    <div class="card-body">
+                        <span id="totalQuestions" class="mx-4 text-secondary font-awesome"></span>
+                        <p id="cardTime" class="mx-4 my-1 text-secondary font-awesome"></p>
+                        <p class="card-title fw-semibold fs-5" id="cardterm"></p>
+                        <button class="btn btn-danger my-4 mx-4">
+                            <a href="#" class="btn btn-danger" id="cardButton">Play Quiz</a>
+                        </button>
+                    </div>
                 </div>
-                <div class="card-body">
-                    <p class="card-title fs-5" id="cardTitle"></p>
-                    <p class="card-title fw-semibold fs-5" id="cardterm"></p>
-                    <a href="#" class="btn btn-danger my-4" id="cardButton">Play Quiz</a>
-                </div>
-            </div> 
             </div>
-            
+        </section>
+        <section class="quizQuestions" id="quizQuestioncard">
+            <div class="container">
+                <div class="hero-main-card rounded-4 quizheader">
+                    <div class="hero-main-card quizheader m-3 p-3 rounded-3 d-flex justify-content-between">
+                        <div class="card-header" id="questionCounter">
+                        </div>
+                        <div class="card-header" id="timer">
+                            time left : 180s
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between mx-5">
+                            <div class="card-header glow-title fw-semibold fs-4" id="quizHeader">
+                            </div>
+                            <div class="card-header" id="currentScore">
+                                current Score: 0
+                            </div>
+                        </div>
+                        <p class="card-text text-center fs-5 m-3" id="quizQuestions"></p>
+                        <button type="button" class="btn btn-outline-danger m-3 justify-content-between"
+                            id="quizOption"></button>
+                        <div class="progress m-4">
+                            <div class="progress-bar" role="progressbar" id="progressBar"></div>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <button type="button" class="btn btn-outline-danger m-3 justify-content-between rounded-3"
+                                id="quizOption">previous</button>
+                            <button type="button" class="btn btn-outline-danger m-3 justify-content-between rounded-3"
+                                id="quizOption">next</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </section>
     </main>
+    <script src="./js/data.js"></script>
+    <script src="./js/play.js"></script>
 </body>
 
 </html>

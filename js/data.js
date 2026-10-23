@@ -1,9 +1,9 @@
 const cardData = [
   {
-    id: "1",
+    id: 1,
     title: "Bollywood Classics",
     description: "Test your knowledge of timeless Hindi cinema from the golden era of Bollywood.",
-    timing: "120s",
+    timing: "120",
     term: [
       "Each question must be answered within the 120-second time limit allocated for the entire quiz.",
       "Once an option is selected and submitted, it cannot be changed or modified.",
@@ -31,10 +31,10 @@ const cardData = [
     ]
   },
  {
-    id: "2",
+    id: 2,
     title: "90s Nostalgia",
     description: "Take a trip down memory lane with the ultimate hits, romance, and action from 90s Bollywood cinema.",
-    timing: "120s",
+    timing: "120",
     term: [
       "Each question must be answered within the 120-second time limit allocated for the entire quiz.",
       "Once an option is selected and submitted, it cannot be changed or modified.",
@@ -97,10 +97,10 @@ const cardData = [
     ]
   },
  {
-  id: "3",
+  id: 3,
   title: "Blockbusters & Action",
   description: "Test your knowledge of high-octane action sequences, 100-crore club hits, and modern blockbuster cinema.",
-  timing: "150s",
+  timing: "150",
   term: [
     "Each question must be answered within the 150-second time limit allocated for the blockbusters quiz.",
     "Once an option is selected and submitted, it cannot be changed or modified.",
@@ -153,10 +153,10 @@ const cardData = [
   ]
 },
  {
-    id: "4",
+    id: 4,
     title: "Actors & Actresses",
     description: "Test your expertise on legendary Bollywood stars, iconic performances, and superstar legacies.",
-    timing: "180s",
+    timing: "180",
     term: [
       "Each quiz session must be completed within the 180-second time limit.",
       "Once an option is chosen, it is final and cannot be modified.",
@@ -164,7 +164,7 @@ const cardData = [
       "All evaluations are processed automatically based on verified film records.",
       "Participants must complete all 9 questions in a single continuous attempt."
     ],
-    active: true,
+    active: false,
     questions: [
       {
         question: "Which actor holds the record for starring in the longest-running Indian film 'Dilwale Dulhania Le Jayenge'?",
@@ -214,10 +214,10 @@ const cardData = [
     ]
   },
  {
-    id: "5",
+    id: 5,
     title: "Music & Lyrics",
     description: "Guess the melody, complete the timeless lyrics, and test your knowledge of legendary Bollywood soundtracks.",
-    timing: "150s",
+    timing: "150",
     term: [
       "Each quiz session must be completed within the allocated 150-second timer.",
       "Once an answer option is locked in, it cannot be edited or reversed.",
@@ -225,7 +225,7 @@ const cardData = [
       "All answers are validated against the official Bollywood music archives.",
       "Ensure a stable internet connection before starting the audio and lyric round."
     ],
-    active: true,
+    active:false,
     questions: [
       {
         question: "Complete the famous song lyrics: 'Kabhi Kabhie Mere Dil Me Khayal Aata Hai, Ki Jaise Tujhko Banaya Gaya Hai...'?",
