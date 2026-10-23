@@ -2,6 +2,11 @@ let params = new URLSearchParams(window.location.search);
 let quizId = parseInt(params.get('id'));
 let quiz = cardData.find(ele => ele.id === quizId && ele.active === true);
 const $ = (id) => document.getElementById(id);
+const  showQue = () => {
+    $('quizdetails').classList.add('d-none');
+    $('quizQuestioncard').classList.remove('d-none');
+    loadQuation()
+};
 function loadDetail() {
     $('cardHeader').innerText = quiz.title;
     $('totalQuestions').innerText = 'Total Questions :- ' + quiz.questions.length;
@@ -11,9 +16,8 @@ function loadDetail() {
         termsHTML += `<p class="my-2 mx-2">➤ ${item}</p>`;
     });
     $('cardterm').innerHTML = termsHTML;
-    // $('cardButton').innerHTML =;
+    $('cardButton').addEventListener('click', showQue);
 }
-
 function showAns(i){
     useranswer[currentQuestionIndex] =  i; 
     loadQuation(); 
@@ -21,7 +25,7 @@ function showAns(i){
 }
 loadDetail();
 // qustion card
-const currentQuestionIndex = 0;
+let currentQuestionIndex = 0;
 const score = 0;
 const useranswer = [];
 function loadQuation() {
@@ -38,8 +42,6 @@ function loadQuation() {
     optionsContainer.innerHTML = '';
     optionsContainer.className = 'row gx-3';
     $('quizOptionContainer').innerHTML=''
-
-
     quiz.questions[currentQuestionIndex].options.forEach((option, index) => {
         const col = document.createElement('div');
         col.className = 'col-md-5';
@@ -55,8 +57,28 @@ function loadQuation() {
             // console.log(index);
               
         });
-        
+        // $('nextOption').disabled = (currentQuestionIndex < quiz.questions.length + 1) ? true : false ;
     });
+ 
 }
 loadQuation();
+
+function handleNext() {
+    if (currentQuestionIndex < quiz.questions.length - 1) {
+        currentQuestionIndex++;
+        loadQuation();
+    } else {
+    }
+}
+function handleBack() {
+    if (currentQuestionIndex < quiz.questions.length - 1) {
+        currentQuestionIndex--;
+        loadQuation();
+    } else {
+
+    }
+}
+// }
 // console.log(progressBar)
+   $('nextOption').addEventListener('click', handleNext);
+   $('backOption').addEventListener('click', handleBack);
