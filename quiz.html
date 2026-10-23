@@ -103,11 +103,14 @@
                             </div>
                         </div>
                         <p class="card-text text-center fs-5 m-3" id="quizQuestions"></p>
-                        <button type="button" class="btn btn-outline-danger m-3 justify-content-between"
-                            id="quizOption"></button>
-                        <div class="progress m-4">
-                            <div class="progress-bar" role="progressbar" id="progressBar"></div>
+                        <div id="quizOptionContainer" class="d-flex flex-column"></div>
+                        <div class="col-12 d-flex p-3 align-items-center justify-content-between">
+                            <div class="progress  col-10">
+                                <div class="progress-bar" role="progressbar" id="progressBar"></div>
+                            </div>
+                            <div class="col-1 mx-4" id="totalbar"></div>
                         </div>
+
                         <div class="d-flex justify-content-between">
                             <button type="button" class="btn btn-outline-danger m-3 justify-content-between rounded-3"
                                 id="quizOption">previous</button>

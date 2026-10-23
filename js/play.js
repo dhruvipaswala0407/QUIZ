@@ -15,7 +15,7 @@ function loadDetail() {
 }
 loadDetail();
 // qustion card
-let currentQuestionIndex = 2;
+let currentQuestionIndex = 0;
 let score = 0;
 function loadQuation() {
     //Questions 1 of 8
@@ -25,7 +25,18 @@ function loadQuation() {
     $('currentScore').textContent = `current Score: ${score}`;
     const progressPercent = ((currentQuestionIndex + 1) /  quiz.questions.length) * 100;
     $('progressBar').style.width = `${progressPercent}%`;
-    
+    $('totalbar').textContent=`${currentQuestionIndex + 1} / ${quiz.questions.length}`;
+    const optionsContainer = $('quizOptionContainer');
+    optionsContainer.innerHTML = '';   
+    quiz.questions[currentQuestionIndex].options.forEach((option, index) => {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'btn btn-outline-danger m-3';
+        button.textContent = option;
+        
+        // This actually puts the buttons on the screen
+        optionsContainer.appendChild(button);
+    });
 }
 loadQuation();
 console.log(progressBar)
