@@ -9,7 +9,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,800;1,600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,800;1,600&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="./css/style.css">
 </head>
 
@@ -21,7 +23,8 @@
                     <i class="fa-solid fa-film text-danger"></i>
                     <span>Cine</span>Quiz
                 </a>
-                <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
+                <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
@@ -31,15 +34,24 @@
                             <a class="nav-link active" aria-current="page" href="#">Home</a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
                                 Categories
                             </a>
                             <ul class="dropdown-menu dropdown-menu-dark bg-dark border-danger">
-                                <li><a class="dropdown-item" href="#categories"><i class="fa-solid fa-masks-theater me-2 text-warning"></i>Bollywood Classics</a></li>
-                                <li><a class="dropdown-item" href="#categories"><i class="fa-solid fa-compact-disc me-2 text-danger"></i>90s Nostalgia</a></li>
-                                <li><a class="dropdown-item" href="#categories"><i class="fa-solid fa-fire me-2 text-warning"></i>Blockbusters & Action</a></li>
-                                <li><a class="dropdown-item" href="#categories"><i class="fa-solid fa-user-ninja me-2 text-info"></i>Actors & Actresses</a></li>
-                                <li><a class="dropdown-item" href="#categories"><i class="fa-solid fa-music me-2 text-success"></i>Music & Lyrics</a></li>
+                                <li><a class="dropdown-item" href="#categories"><i
+                                            class="fa-solid fa-masks-theater me-2 text-warning"></i>Bollywood
+                                        Classics</a></li>
+                                <li><a class="dropdown-item" href="#categories"><i
+                                            class="fa-solid fa-compact-disc me-2 text-danger"></i>90s Nostalgia</a></li>
+                                <li><a class="dropdown-item" href="#categories"><i
+                                            class="fa-solid fa-fire me-2 text-warning"></i>Blockbusters & Action</a>
+                                </li>
+                                <li><a class="dropdown-item" href="#categories"><i
+                                            class="fa-solid fa-user-ninja me-2 text-info"></i>Actors & Actresses</a>
+                                </li>
+                                <li><a class="dropdown-item" href="#categories"><i
+                                            class="fa-solid fa-music me-2 text-success"></i>Music & Lyrics</a></li>
                             </ul>
                         </li>
                         <li class="nav-item">
@@ -61,10 +73,11 @@
         <section class="hero-section">
             <div class="container">
                 <div class="hero-main-card rounded-4 p-4 p-lg-5">
-                    <div class="row align-items-center">    
+                    <div class="row align-items-center">
 
                         <div class="col-lg-6 mb-5 mb-lg-0">
-                            <span class="badge bg-danger bg-opacity-25 text-danger border border-danger px-3 py-2 rounded-pill mb-3">
+                            <span
+                                class="badge bg-danger bg-opacity-25 text-danger border border-danger px-3 py-2 rounded-pill mb-3">
                                 🎬 Welcome to CineQuiz
                             </span>
                             <h1 class="display-4 fw-bold glow-title mb-3">
@@ -76,9 +89,9 @@
                                 title as the ultimate Cinephile! 🏆
                             </p>
                             <div class="d-flex gap-3">
-                                <button class="btn btn-danger btn-lg px-4 rounded-3 fw-semibold">
+                                <a href="#categories" class="btn btn-danger btn-lg px-4 rounded-3 fw-semibold">
                                     🎟️ View Quiz
-                                </button>
+                                </a>
                                 <button class="btn btn-outline-light btn-lg px-4 rounded-3 fw-semibold">
                                     ⭐ Explore Categories
                                 </button>
@@ -108,7 +121,8 @@
                                         <span class="badge bg-success">Active</span>
                                     </div>
                                     <h5 class="fw-bold text-white mb-1">Daily Challenge</h5>
-                                    <p class="small text-light opacity-75 mb-3">Guess the iconic dialogue of the day!</p>
+                                    <p class="small text-light opacity-75 mb-3">Guess the iconic dialogue of the day!
+                                    </p>
                                     <div class="d-flex justify-content-between align-items-center">
                                         <small class="text-warning">⚡ 500+ Players</small>
                                         <span class="text-danger fw-bold fs-5">→</span>
@@ -122,13 +136,74 @@
                 </div>
             </div>
         </section>
-        <section class="catogary">
-            <div class="container mt-5">
-                <div class="row" id="category-card">
-                </div>
+        <section class="categories" id="categories">
+            <div class="container mt-5 d-flex flex-wrap" id="category-card">
             </div>
         </section>
     </main>
+    <footer>
+        <div class="container">
+            <div class="hero-main-card col-12 rounded-4 p-4 mt-5 d-flex flex-wrap">
+                <div class="col-lg-3">
+                    <div class="col-12 px-3 py-2">
+                        <a class="navbar-brand d-flex align-items-center gap-2" href="#">
+                            <i class="fa-solid fa-film text-danger"></i>
+                            <span>Cine</span>Quiz <span class="glow-title fs-4">🍿</span>
+                        </a>
+                    </div>
+                    <figcaption class="fs-6 px-3 my-2 font-awesome blockquote-footer lead">
+                        The ultimate hub for Bollywood trivia, Daily challenges, and movie magic.
+                    </figcaption>
+                    <nav aria-label="breadcrumb mx-5">
+                        <ol class="breadcrumb mx-3 my-1">
+                            <li class="breadcrumb-item"><a href="#" class="text-decoration-none text-muted"><i
+                                        class="fa-brands fa-github"></i></a></li>
+                            <li class="breadcrumb-item"><a href="#" class="text-decoration-none text-muted"><i
+                                        class="fa-brands fa-instagram"></i></a></li>
+                            <li class="breadcrumb-item"><a href="#" class="text-decoration-none text-muted"><i
+                                        class="fa-brands fa-linkedin"></i></a></li>
+                            <li class="breadcrumb-item"><a href="#" class="text-decoration-none text-muted"><i
+                                        class="fa-solid fa-envelope"></i></a></li>
+                        </ol>
+                    </nav>
+                </div>
+                <div class="col-lg-8">
+                    <div class="table-responsive">
+                        <table class="table table-borderless bg-dark">
+                            <thead>
+                                <tr>
+                                    <th table-borderless>Quick Links</th>
+                                    <th table-borderless>Quick Themes</th>
+                                    <th table-borderless>Community & More</th>
+                                    <th table-borderless>Get The App</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Mark</td>
+                                    <td>Otto</td>
+                                    <td>@mdo</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>Jacob</td>
+                                    <td>Thornton</td>
+                                    <td>@fat</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>John</td>
+                                    <td>Doe</td>
+                                    <td>@social</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <script src="./js/data.js"></script>
     <script src="./js/quiz.js"></script>

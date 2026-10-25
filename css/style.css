@@ -20,7 +20,7 @@ body {
     overflow-x: hidden;
     scroll-behavior: smooth;
 }
-
+.text-muted{color:var(--text-muted);}
 .navbar-brand {
     font-family: var(--font-heading);
     font-weight: 800;
