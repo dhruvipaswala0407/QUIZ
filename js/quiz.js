@@ -19,7 +19,7 @@ cardData.forEach(ele => {
                                 <h4 class="card-title fs-2 fw-bold py-3 d-flex justify-content-center">
                                    ${ele.title}
                                 </h4>
-                                <p class="card-title mb-2 fs-5 fw-semibold d-flex justify-content-center">
+                                <p class="card-title mb-2 fs-6 fw-semibold d-flex justify-content-center ">
                                     ${shortDesc}
                                 </p>
                                 <div class="mt-3 d-flex

@@ -153,3 +153,6 @@ body {
     background-color: var(--bg-card);
     color:var(--text-muted);
 }
+.h-LG-336{
+height:336px;   
+}
