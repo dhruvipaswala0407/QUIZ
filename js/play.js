@@ -2,12 +2,23 @@ let params = new URLSearchParams(window.location.search);
 let quizId = parseInt(params.get('id'));
 let quiz = cardData.find(ele => ele.id === quizId && ele.active === true);
 const $ = (id) => document.getElementById(id);
-const  showQue = () => {
+let currentQuestionIndex = 0;
+const score = 0;
+let useranswer = [];
+const playQuiz =() => {
+    currentQuestionIndex = 0;
     $('quizdetails').classList.add('d-none');
     $('quizQuestioncard').classList.remove('d-none');
+    $('quizScore').classList.add('d-none');
+    playAgain();
+}
+const showQue = () => {
+    $('quizdetails').classList.add('d-none');
+    $('quizQuestioncard').classList.remove('d-none');
+    $('quizScore').classList.add('d-none');
     loadQuation()
 };
-function loadDetail() {
+const loadDetail = () => {
     $('cardHeader').innerText = quiz.title;
     $('totalQuestions').innerText = 'Total Questions :- ' + quiz.questions.length;
     $('cardTime').innerText = 'Total Time :- ' + quiz.timing + 's';
@@ -18,17 +29,14 @@ function loadDetail() {
     $('cardterm').innerHTML = termsHTML;
     $('cardButton').addEventListener('click', showQue);
 }
-function showAns(i){
+const showAns =(i) => {
     useranswer[currentQuestionIndex] =  i; 
     loadQuation(); 
-    console.log(useranswer)
+    // console.log(useranswer)
 }
 loadDetail();
 // qustion card
-let currentQuestionIndex = 0;
-const score = 0;
-const useranswer = [];
-function loadQuation() {
+const loadQuation = () => {
     //Questions 1 of 8
     $('questionCounter').textContent = `Questions ${currentQuestionIndex + 1} of ${quiz.questions.length}`;
     $('quizHeader').textContent = quiz.title;
@@ -46,7 +54,6 @@ function loadQuation() {
         const col = document.createElement('div');
         col.className = 'col-md-5';
         const button = document.createElement('button');
-    
         button.className = (useranswer[currentQuestionIndex] === quiz.questions[currentQuestionIndex].options[index]) ? `btn bg-card btn-outline-success btn text-white w-100 p-3` : `btn bg-card text-white w-100 p-3`;
         button.textContent = `${optionsymbol[index]}. ${option}`;
         col.append(button);
@@ -57,28 +64,41 @@ function loadQuation() {
             // console.log(index);
               
         });
-        // $('nextOption').disabled = (currentQuestionIndex < quiz.questions.length + 1) ? true : false ;
     });
+    $('nextOption').textContent = (currentQuestionIndex < quiz.questions.length - 1) ? `Next` : `Finish` ;
  
 }
 loadQuation();
+const finishQuiz = () => {
+    $('quizdetails').classList.add('d-none');
+    $('quizQuestioncard').classList.add('d-none');
+    $('quizScore').classList.remove('d-none');
+    loadQuation();
+}
 
-function handleNext() {
+const handleNext = () => {
     if (currentQuestionIndex < quiz.questions.length - 1) {
         currentQuestionIndex++;
         loadQuation();
     } else {
+        finishQuiz();
     }
 }
-function handleBack() {
-    if (currentQuestionIndex < quiz.questions.length - 1) {
-        currentQuestionIndex--;
-        loadQuation();
-    } else {
-
-    }
-}
+// function handleBack() {
+//     if (currentQuestionIndex ) {
+//         currentQuestionIndex--;
+//         loadQuation();
+//     }else{
+//         loadDetail();
+//     } 
 // }
-// console.log(progressBar)
+
+const playAgain =( ) => {
+    currentQuestionIndex = 0;
+    
+    loadQuation();
+}
+// console.log(handleBack());
    $('nextOption').addEventListener('click', handleNext);
    $('backOption').addEventListener('click', handleBack);
+   $('playAgain').addEventListener('click', playQuiz);
