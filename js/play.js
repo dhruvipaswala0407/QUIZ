@@ -7,20 +7,27 @@ let useranswer = [];
 for (let i = 0; i < quiz.questions.length; i++) {
     useranswer.push(null);
 }
-console.log(useranswer)
+let timeleft = 10;
+let timer;
+const startTime = () => {
+    timer=setInterval(() => {
+        if(timeleft == 0 ){
+            finishQuiz();
+        }
+        $('timer').textContent=`Time Left : ${timeleft --}` ;
+    }, 1000);
+}
+//  console.log(startTime(quiz.timer))
 const playQuiz =() => {
     currentQuestionIndex = 0;
     $('quizdetails').classList.add('d-none');
     $('quizQuestioncard').classList.remove('d-none');
     $('quizScore').classList.add('d-none');
     playAgain();
+    loadQuestion();
+   startTime();
+    
 }
-const showQue = () => {
-    $('quizdetails').classList.add('d-none');
-    $('quizQuestioncard').classList.remove('d-none');
-    $('quizScore').classList.add('d-none');
-    loadQuation()
-};
 const loadDetail = () => {
     $('cardHeader').innerText = quiz.title;
     $('totalQuestions').innerText = 'Total Questions :- ' + quiz.questions.length;
@@ -30,37 +37,34 @@ const loadDetail = () => {
         termsHTML += `<p class="my-2 mx-2">➤ ${item}</p>`;
     });
     $('cardterm').innerHTML = termsHTML;
-    $('cardButton').addEventListener('click', showQue);
 }
+$('cardButton').addEventListener('click', playQuiz);
 const showAns =(i) => {
     useranswer[currentQuestionIndex] =  i; 
-    console.log(useranswer);
-    loadQuation(); 
+    loadQuestion(); 
 }
-const currentScore = () => {
+const attemptScore = () => {
     let score = 0;
     for(let i = 0; i < useranswer.length ; i++){
          if(useranswer[i] !== null){
             score++;
          }
     }
-     return score;
+    return score;
 }
-console.log (currentScore())
 loadDetail();
 // qustion card
-const loadQuation = () => {
+const loadQuestion = () => {
     //Questions 1 of 8
     $('questionCounter').textContent = `Questions ${currentQuestionIndex + 1} of ${quiz.questions.length}`;
     $('quizHeader').textContent = quiz.title;
     $('quizQuestions').textContent = quiz.questions[currentQuestionIndex].question;
-    // $('currentScore').textContent = `current Score: ${score}`;
+    $('attemptScore').textContent = `Attempt Score: ${attemptScore()}`;
     const progressPercent = ((currentQuestionIndex + 1) / quiz.questions.length) * 100;
     $('progressBar').style.width = `${progressPercent}%`;
     $('totalbar').textContent = `${currentQuestionIndex + 1} / ${quiz.questions.length}`;
     const optionsymbol = ["A", "B", "C", "D"]
     const optionsContainer = $('quizOptionContainer');
-    optionsContainer.innerHTML = '';
     optionsContainer.className = 'row gx-3';
     $('quizOptionContainer').innerHTML=''
     quiz.questions[currentQuestionIndex].options.forEach((option, index) => {
@@ -78,38 +82,32 @@ const loadQuation = () => {
     });
 
     $('nextOption').textContent = (currentQuestionIndex < quiz.questions.length - 1) ? `Next` : `Finish` ;
- 
 }
-loadQuation();
+loadQuestion();
+const getQuizScore = () => {
+    $('scoreNumber').textContent = `${attemptScore()} / ${quiz.questions.length}`;
+
+}
+
 const finishQuiz = () => {
     $('quizdetails').classList.add('d-none');
     $('quizQuestioncard').classList.add('d-none');
     $('quizScore').classList.remove('d-none');
-    loadQuation();
+    loadQuestion();
+    getQuizScore();
+    clearInterval(timer);
 }
-
 const handleNext = () => {
     if (currentQuestionIndex < quiz.questions.length - 1) {
         currentQuestionIndex++;
-        loadQuation();
+        loadQuestion();
     } else {
         finishQuiz();
     }
 }
-// function handleBack() {
-//     if (currentQuestionIndex ) {
-//         currentQuestionIndex--;
-//         loadQuation();
-//     }else{
-//         loadDetail();
-//     } 
-// }
-
 const playAgain =( ) => {
     currentQuestionIndex = 0;
-    loadQuation();
+    loadQuestion();
 }
-// console.log(handleBack());
    $('nextOption').addEventListener('click', handleNext);
-//    $('backOption').addEventListener('click', handleBack);
    $('playAgain').addEventListener('click', playQuiz);
