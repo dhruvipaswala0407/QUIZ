@@ -4,7 +4,10 @@ let quiz = cardData.find(ele => ele.id === quizId && ele.active === true);
 const $ = (id) => document.getElementById(id);
 let currentQuestionIndex = 0;
 let useranswer = [];
-useranswer.pus
+for (let i = 0; i < quiz.questions.length; i++) {
+    useranswer.push(null);
+}
+console.log(useranswer)
 const playQuiz =() => {
     currentQuestionIndex = 0;
     $('quizdetails').classList.add('d-none');
@@ -31,19 +34,20 @@ const loadDetail = () => {
 }
 const showAns =(i) => {
     useranswer[currentQuestionIndex] =  i; 
+    console.log(useranswer);
     loadQuation(); 
 }
-loadDetail();
 const currentScore = () => {
     let score = 0;
-        for(let i = 0; i < useranswer.length; i++){
-            if(useranswer != null){
-                score++;
-            }
-        }
-
-    return score;
+    for(let i = 0; i < useranswer.length ; i++){
+         if(useranswer[i] !== null){
+            score++;
+         }
+    }
+     return score;
 }
+console.log (currentScore())
+loadDetail();
 // qustion card
 const loadQuation = () => {
     //Questions 1 of 8
@@ -70,10 +74,9 @@ const loadQuation = () => {
         console.log();
         button.addEventListener('click', () => {
             showAns(option);
-            // console.log(index);
-              
         });
     });
+
     $('nextOption').textContent = (currentQuestionIndex < quiz.questions.length - 1) ? `Next` : `Finish` ;
  
 }
