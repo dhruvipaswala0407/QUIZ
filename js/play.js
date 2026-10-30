@@ -3,8 +3,8 @@ let quizId = parseInt(params.get('id'));
 let quiz = cardData.find(ele => ele.id === quizId && ele.active === true);
 const $ = (id) => document.getElementById(id);
 let currentQuestionIndex = 0;
-const score = 0;
 let useranswer = [];
+useranswer.pus
 const playQuiz =() => {
     currentQuestionIndex = 0;
     $('quizdetails').classList.add('d-none');
@@ -32,16 +32,25 @@ const loadDetail = () => {
 const showAns =(i) => {
     useranswer[currentQuestionIndex] =  i; 
     loadQuation(); 
-    // console.log(useranswer)
 }
 loadDetail();
+const currentScore = () => {
+    let score = 0;
+        for(let i = 0; i < useranswer.length; i++){
+            if(useranswer != null){
+                score++;
+            }
+        }
+
+    return score;
+}
 // qustion card
 const loadQuation = () => {
     //Questions 1 of 8
     $('questionCounter').textContent = `Questions ${currentQuestionIndex + 1} of ${quiz.questions.length}`;
     $('quizHeader').textContent = quiz.title;
     $('quizQuestions').textContent = quiz.questions[currentQuestionIndex].question;
-    $('currentScore').textContent = `current Score: ${score}`;
+    // $('currentScore').textContent = `current Score: ${score}`;
     const progressPercent = ((currentQuestionIndex + 1) / quiz.questions.length) * 100;
     $('progressBar').style.width = `${progressPercent}%`;
     $('totalbar').textContent = `${currentQuestionIndex + 1} / ${quiz.questions.length}`;
@@ -95,10 +104,9 @@ const handleNext = () => {
 
 const playAgain =( ) => {
     currentQuestionIndex = 0;
-    
     loadQuation();
 }
 // console.log(handleBack());
    $('nextOption').addEventListener('click', handleNext);
-   $('backOption').addEventListener('click', handleBack);
+//    $('backOption').addEventListener('click', handleBack);
    $('playAgain').addEventListener('click', playQuiz);
