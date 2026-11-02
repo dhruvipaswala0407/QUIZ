@@ -170,7 +170,6 @@ body {
     justify-content: center;
     box-shadow: 0 0 20px rgba(229, 9, 20, 0.35);
 }
-
 .score-inner {
     width: 106px;
     height: 106px;
@@ -181,17 +180,24 @@ body {
     align-items: center;
     justify-content: center;
 }
-
 .score-number {
     font-size: 1.5rem;
     font-weight: 700;
     color: #ffffff;
     line-height: 1;
 }
-
 .score-percent {
     font-size: 0.8rem;
     font-weight: 600;
     color: #ff334b;
     margin-top: 4px;
+}
+.ansWrong{
+  background-color: #f1060660;  
+}
+.ansRight{
+    background-color: rgba(14, 218, 14, 0.459);
+}
+.total{
+    background-color: rgba(252, 252, 68, 0.466);
 }

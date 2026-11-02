@@ -14,23 +14,53 @@ const cardData = [
     active: true,
     questions: [
       {
-        question: "Which 1975 film featured the iconic dialogue 'Kitne aadmi the?'",
-        options: ["Sholay", "Deewaar", "Don", "Zanjeer"],
-        answer: "Sholay"
+        "question": "Which 1975 film featured the iconic dialogue 'Kitne aadmi the?'",
+        "options": ["Sholay", "Deewaar", "Don", "Zanjeer"],
+        "answer": "Sholay"
       },
       {
-        question: "Who played the legendary lead role in the 1957 epic drama 'Mother India'?",
-        options: ["Nargis", "Madhubala", "Meena Kumari", "Suraiya"],
-        answer: "Nargis"
+        "question": "Who played the legendary lead role in the 1957 epic drama 'Mother India'?",
+        "options": ["Nargis", "Madhubala", "Meena Kumari", "Suraiya"],
+        "answer": "Nargis"
       },
       {
-        question: "In the movie 'Mughal-e-Azam', what was the name of the character played by Madhubala?",
-        options: ["Anarkali", "Chandramukhi", "Mastani", "Laila"],
-        answer: "Anarkali"
+        "question": "In the movie 'Mughal-e-Azam', what was the name of the character played by Madhubala?",
+        "options": ["Anarkali", "Chandramukhi", "Mastani", "Laila"],
+        "answer": "Anarkali"
+      },
+      {
+        "question": "Which 1960 classic period drama took over a decade to complete and featured the famous song 'Pyar Kiya To Darna Kya'?",
+        "options": ["Pakeezah", "Mughal-e-Azam", "Devdas", "Chaudhvin Ka Chand"],
+        "answer": "Mughal-e-Azam"
+      },
+      {
+        "question": "Who played Raj Kapoor’s love interest in the 1955 classic 'Shree 420'?",
+        "options": ["Waheeda Rehman", "Nargis", "Vyjayanthimala", "Asha Parekh"],
+        "answer": "Nargis"
+      },
+      {
+        "question": "In the iconic 1975 drama 'Deewaar', which actor played the character of Vijay, delivering the famous line 'Aaj mere paas bangla hai, gaadi hai...'?",
+        "options": ["Dharmendra", "Rishi Kapoor", "Amitabh Bachchan", "Rajesh Khanna"],
+        "answer": "Amitabh Bachchan"
+      },
+      {
+        "question": "Which 1971 musical film directed by Nasir Hussain starred Asha Parekh and Rajesh Khanna and featured music by R.D. Burman?",
+        "options": ["Kati Patang", "Caravan", "Amar Prem", "Aradhana"],
+        "answer": "Kati Patang"
+      },
+      {
+        "question": "In the 1957 film 'Pyaasa', directed by and starring Guru Dutt, who played the role of the compassionate prostitute Gulabo?",
+        "options": ["Meena Kumari", "Waheeda Rehman", "Mala Sinha", "Nanda"],
+        "answer": "Waheeda Rehman"
+      },
+      {
+        "question": "Which legendary singer sang the classic song 'Aayega Aana Wala' from the 1949 film 'Mahal'?",
+        "options": ["Asha Bhosle", "Geeta Dutt", "Shamshad Begum", "Lata Mangeshkar"],
+        "answer": "Lata Mangeshkar"
       }
     ]
   },
- {
+  {
     id: 2,
     title: "90s Nostalgia",
     description: "Take a trip down memory lane with the ultimate hits, romance, and action from 90s Bollywood cinema.",
@@ -96,63 +126,63 @@ const cardData = [
       }
     ]
   },
- {
-  id: 3,
-  title: "Blockbusters & Action",
-  description: "Test your knowledge of high-octane action sequences, 100-crore club hits, and modern blockbuster cinema.",
-  timing: "150",
-  term: [
-    "Each question must be answered within the 150-second time limit allocated for the blockbusters quiz.",
-    "Once an option is selected and submitted, it cannot be changed or modified.",
-    "Switching browser tabs or minimizing the window during the active session may result in disqualification.",
-    "All submitted answers are final and evaluated automatically based on the blockbusters and action database.",
-    "Participants must complete all questions in a single continuous session without pausing or refreshing."
-  ],
-  active: true,
-  questions: [
-    {
-      question: "Which 2023 action thriller starring Shah Rukh Khan broke numerous box office records and grossed over 1000 crore worldwide?",
-      options: ["Pathaan", "Jawan", "Tiger 3", "Gadar 2"],
-      answer: "Pathaan"
-    },
-    {
-      question: "Which action movie features Yash as the formidable protagonist 'Rocky' in the Kolar Gold Fields?",
-      options: ["KGF: Chapter 1", "Salaar", "Pushpa", "Baahubali"],
-      answer: "KGF: Chapter 1"
-    },
-    {
-      question: "Who killed Amarendra Baahubali in the epic blockbuster saga 'Baahubali 2: The Conclusion'?",
-      options: ["Bhallaladeva", "Katappa", "Bijjaladeva", "Raktadeva"],
-      answer: "Katappa"
-    },
-    {
-      question: "Which 2023 action film directed by Atlee featured Shah Rukh Khan in a dual role alongside Nayanthara and Vijay Sethupathi?",
-      options: ["Jawan", "Pathaan", "Dunki", "Raees"],
-      answer: "Jawan"
-    },
-    {
-      question: "Which movie launched the massive Yash Raj Films Spy Universe featuring Salman Khan as an undercover RAW agent?",
-      options: ["Ek Tha Tiger", "War", "Pathaan", "Tiger Zinda Hai"],
-      answer: "Ek Tha Tiger"
-    },
-    {
-      question: "In S.S. Rajamouli's global blockbuster 'RRR', what are the names of the two freedom fighters played by Ram Charan and Jr. NTR?",
-      options: ["Alluri Sitarama Raju & Komaram Bheem", "Bhagat Singh & Sukhdev", "Shivaji & Tanaji", "Prithviraj & Chand Bardai"],
-      answer: "Alluri Sitarama Raju & Komaram Bheem"
-    },
-    {
-      question: "Which 2023 action sequel features Sunny Deol reprising his role as Tara Singh to cross the border into Pakistan?",
-      options: ["Gadar 2", "Border", "The Hero: Love Story of a Spy", "Gadar: Ek Prem Katha"],
-      answer: "Gadar 2"
-    },
-    {
-      question: "Which 2019 action thriller starring Hrithik Roshan and Tiger Shroff featured high-octane chase sequences and face-offs?",
-      options: ["War", "Bang Bang!", "Dhoom 2", "Krrish 3"],
-      answer: "War"
-    },
-  ]
-},
- {
+  {
+    id: 3,
+    title: "Blockbusters & Action",
+    description: "Test your knowledge of high-octane action sequences, 100-crore club hits, and modern blockbuster cinema.",
+    timing: "150",
+    term: [
+      "Each question must be answered within the 150-second time limit allocated for the blockbusters quiz.",
+      "Once an option is selected and submitted, it cannot be changed or modified.",
+      "Switching browser tabs or minimizing the window during the active session may result in disqualification.",
+      "All submitted answers are final and evaluated automatically based on the blockbusters and action database.",
+      "Participants must complete all questions in a single continuous session without pausing or refreshing."
+    ],
+    active: true,
+    questions: [
+      {
+        question: "Which 2023 action thriller starring Shah Rukh Khan broke numerous box office records and grossed over 1000 crore worldwide?",
+        options: ["Pathaan", "Jawan", "Tiger 3", "Gadar 2"],
+        answer: "Pathaan"
+      },
+      {
+        question: "Which action movie features Yash as the formidable protagonist 'Rocky' in the Kolar Gold Fields?",
+        options: ["KGF: Chapter 1", "Salaar", "Pushpa", "Baahubali"],
+        answer: "KGF: Chapter 1"
+      },
+      {
+        question: "Who killed Amarendra Baahubali in the epic blockbuster saga 'Baahubali 2: The Conclusion'?",
+        options: ["Bhallaladeva", "Katappa", "Bijjaladeva", "Raktadeva"],
+        answer: "Katappa"
+      },
+      {
+        question: "Which 2023 action film directed by Atlee featured Shah Rukh Khan in a dual role alongside Nayanthara and Vijay Sethupathi?",
+        options: ["Jawan", "Pathaan", "Dunki", "Raees"],
+        answer: "Jawan"
+      },
+      {
+        question: "Which movie launched the massive Yash Raj Films Spy Universe featuring Salman Khan as an undercover RAW agent?",
+        options: ["Ek Tha Tiger", "War", "Pathaan", "Tiger Zinda Hai"],
+        answer: "Ek Tha Tiger"
+      },
+      {
+        question: "In S.S. Rajamouli's global blockbuster 'RRR', what are the names of the two freedom fighters played by Ram Charan and Jr. NTR?",
+        options: ["Alluri Sitarama Raju & Komaram Bheem", "Bhagat Singh & Sukhdev", "Shivaji & Tanaji", "Prithviraj & Chand Bardai"],
+        answer: "Alluri Sitarama Raju & Komaram Bheem"
+      },
+      {
+        question: "Which 2023 action sequel features Sunny Deol reprising his role as Tara Singh to cross the border into Pakistan?",
+        options: ["Gadar 2", "Border", "The Hero: Love Story of a Spy", "Gadar: Ek Prem Katha"],
+        answer: "Gadar 2"
+      },
+      {
+        question: "Which 2019 action thriller starring Hrithik Roshan and Tiger Shroff featured high-octane chase sequences and face-offs?",
+        options: ["War", "Bang Bang!", "Dhoom 2", "Krrish 3"],
+        answer: "War"
+      },
+    ]
+  },
+  {
     id: 4,
     title: "Actors & Actresses",
     description: "Test your expertise on legendary Bollywood stars, iconic performances, and superstar legacies.",
@@ -213,7 +243,7 @@ const cardData = [
       }
     ]
   },
- {
+  {
     id: 5,
     title: "Music & Lyrics",
     description: "Guess the melody, complete the timeless lyrics, and test your knowledge of legendary Bollywood soundtracks.",
@@ -225,7 +255,7 @@ const cardData = [
       "All answers are validated against the official Bollywood music archives.",
       "Ensure a stable internet connection before starting the audio and lyric round."
     ],
-    active:false,
+    active: false,
     questions: [
       {
         question: "Complete the famous song lyrics: 'Kabhi Kabhie Mere Dil Me Khayal Aata Hai, Ki Jaise Tujhko Banaya Gaya Hai...'?",

@@ -104,7 +104,7 @@
                         <div class="d-flex justify-content-center p-1">
                             <div id="quizOptionContainer"></div>
                         </div>
-                        
+
                         <div class="col-12 d-flex p-3 align-items-center justify-content-between">
                             <div class="progress  col-10">
                                 <div class="progress-bar" role="progressbar" id="progressBar"></div>
@@ -121,24 +121,30 @@
             </div>
         </section>
         <section class="ScoreBar d-none" id="quizScore">
-           <div class="container">
-             <div class="hero-main-card text-center rounded-4">
-                <div class="card-title py-2 fs-5 fw-bold text-danger">
-                    Quiz Complete!🎉
-                </div>
-                <div class="card-body d-flex align-items-center justify-content-center">
-                    <div class="score-circle my-4">
-                        <div class="score-inner">
-                            <span class="score-number" id="scoreNumber"></span>
+            <div class="container">
+                <div class="hero-main-card text-center rounded-4">
+                    <div class="card-title py-2 fs-5 fw-bold text-danger">
+                        Quiz Complete!🎉
+                    </div>
+                    <div class="card-body d-flex align-items-center justify-content-center">
+                        <div class="score-circle my-4">
+                            <div class="score-inner">
+                                <span class="score-number" id="scoreNumber"></span>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div>
-                    <button type="button" class="btn btn-outline-danger m-3 justify-content-between rounded-3"
-                    id="playAgain">Play Again</button>
+                    <div class="d-flex justify-content-center mt-1 mb-1">
+                        <div class="d-flex justify-content-evenly" style="width:500px;">
+                            <div class="ansRight px-5 py-4 rounded-3" id="ansRight">b</div>
+                            <div class="ansWrong px-5 py-4 rounded-3" id="ansWrong">c</div>
+                        </div>
+                    </div>
+                    <div>
+                        <button type="button" class="btn btn-outline-danger m-3 justify-content-between rounded-3"
+                            id="playAgain">Play Again</button>
+                    </div>
                 </div>
             </div>
-           </div>
 
         </section>
     </main>

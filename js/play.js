@@ -2,12 +2,12 @@ let params = new URLSearchParams(window.location.search);
 let quizId = parseInt(params.get('id'));
 let quiz = cardData.find(ele => ele.id === quizId && ele.active === true);
 const $ = (id) => document.getElementById(id);
-let currentQuestionIndex = 0;
+let currentIndex = 0;
 let useranswer = [];
 for (let i = 0; i < quiz.questions.length; i++) {
     useranswer.push(null);
 }
-let timeleft = 10;
+let timeleft = quiz.timing;
 let timer;
 const startTime = () => {
     timer=setInterval(() => {
@@ -16,10 +16,11 @@ const startTime = () => {
         }
         $('timer').textContent=`Time Left : ${timeleft --}` ;
     }, 1000);
+    return timer;
 }
 //  console.log(startTime(quiz.timer))
 const playQuiz =() => {
-    currentQuestionIndex = 0;
+    currentIndex = 0;
     $('quizdetails').classList.add('d-none');
     $('quizQuestioncard').classList.remove('d-none');
     $('quizScore').classList.add('d-none');
@@ -40,9 +41,26 @@ const loadDetail = () => {
 }
 $('cardButton').addEventListener('click', playQuiz);
 const showAns =(i) => {
-    useranswer[currentQuestionIndex] =  i; 
+    useranswer[currentIndex] =  i; 
     loadQuestion(); 
 }
+const ansCheck = () => {
+    let right = 0;
+    let wrong = 0;
+    let unattempted = 0;
+
+    for (let i = 0; i < useranswer.length; i++) {
+        if (useranswer[i] === null) {
+            unattempted++;
+        } else if (useranswer[i] === quiz.questions[i]['answer']) {
+            // FIXED: Using [i] instead of [currentIndex]
+            right++;
+        } else {
+            wrong++;
+        }
+    }
+    return { right, wrong, unattempted };
+};
 const attemptScore = () => {
     let score = 0;
     for(let i = 0; i < useranswer.length ; i++){
@@ -56,22 +74,22 @@ loadDetail();
 // qustion card
 const loadQuestion = () => {
     //Questions 1 of 8
-    $('questionCounter').textContent = `Questions ${currentQuestionIndex + 1} of ${quiz.questions.length}`;
+    $('questionCounter').textContent = `Questions ${currentIndex + 1} of ${quiz.questions.length}`;
     $('quizHeader').textContent = quiz.title;
-    $('quizQuestions').textContent = quiz.questions[currentQuestionIndex].question;
+    $('quizQuestions').textContent = quiz.questions[currentIndex].question;
     $('attemptScore').textContent = `Attempt Score: ${attemptScore()}`;
-    const progressPercent = ((currentQuestionIndex + 1) / quiz.questions.length) * 100;
+    const progressPercent = ((currentIndex + 1) / quiz.questions.length) * 100;
     $('progressBar').style.width = `${progressPercent}%`;
-    $('totalbar').textContent = `${currentQuestionIndex + 1} / ${quiz.questions.length}`;
+    $('totalbar').textContent = `${currentIndex + 1} / ${quiz.questions.length}`;
     const optionsymbol = ["A", "B", "C", "D"]
     const optionsContainer = $('quizOptionContainer');
     optionsContainer.className = 'row gx-3';
     $('quizOptionContainer').innerHTML=''
-    quiz.questions[currentQuestionIndex].options.forEach((option, index) => {
+    quiz.questions[currentIndex].options.forEach((option, index) => {
         const col = document.createElement('div');
         col.className = 'col-md-5';
         const button = document.createElement('button');
-        button.className = (useranswer[currentQuestionIndex] === quiz.questions[currentQuestionIndex].options[index]) ? `btn bg-card btn-outline-success btn text-white w-100 p-3` : `btn bg-card text-white w-100 p-3`;
+        button.className = (useranswer[currentIndex] === quiz.questions[currentIndex].options[index]) ? `btn bg-card btn-outline-success btn text-white w-100 p-3` : `btn bg-card text-white w-100 p-3`;
         button.textContent = `${optionsymbol[index]}. ${option}`;
         col.append(button);
         optionsContainer.append(col);
@@ -81,12 +99,15 @@ const loadQuestion = () => {
         });
     });
 
-    $('nextOption').textContent = (currentQuestionIndex < quiz.questions.length - 1) ? `Next` : `Finish` ;
+    $('nextOption').textContent = (currentIndex < quiz.questions.length - 1) ? `Next` : `Finish` ;
 }
 loadQuestion();
 const getQuizScore = () => {
+    let result = ansCheck();
     $('scoreNumber').textContent = `${attemptScore()} / ${quiz.questions.length}`;
-
+    $('ansRight').textContent = `${result.right}`;
+    $('ansWrong').textContent = `${result.wrong}`;
+    
 }
 
 const finishQuiz = () => {
@@ -96,18 +117,22 @@ const finishQuiz = () => {
     loadQuestion();
     getQuizScore();
     clearInterval(timer);
+    ansCheck();
 }
 const handleNext = () => {
-    if (currentQuestionIndex < quiz.questions.length - 1) {
-        currentQuestionIndex++;
+    if (currentIndex < quiz.questions.length - 1) {
+        currentIndex++;
         loadQuestion();
     } else {
         finishQuiz();
     }
 }
 const playAgain =( ) => {
-    currentQuestionIndex = 0;
+    currentIndex = 0;
+    attemptScore();
+    score = 0
     loadQuestion();
+    timeleft = quiz.timing;
 }
    $('nextOption').addEventListener('click', handleNext);
    $('playAgain').addEventListener('click', playQuiz);
