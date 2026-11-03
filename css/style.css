@@ -7,7 +7,7 @@
     --gold-accent: #ffd700;
     --gold-subtle: #d4af37;
     --text-main: #f8f9fa;
-    --text-muted: #b0a0a0;
+    --text-muted: #bc9e9e;
     --border-glow: rgba(255, 26, 64, 0.25);
     --font-heading: 'Playfair Display', serif;
     --font-body: 'Inter', sans-serif;
@@ -21,10 +21,13 @@ body {
     scroll-behavior: smooth;
 }
 
-.text-muted {
+.text-muted1 {
     color: var(--text-muted);
 }
-
+.text-muted {
+    --bs-text-opacity: 1;
+    /* color: var(--bs-secondary-color) !important; */
+}
 .navbar-brand {
     font-family: var(--font-heading);
     font-weight: 800;
@@ -200,4 +203,17 @@ body {
 }
 .total{
     background-color: rgba(252, 252, 68, 0.466);
+}
+.step-card {
+    transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.step-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--crimson-glow) !important;
+    box-shadow: 0 15px 30px rgba(220, 53, 69, 0.3);
+}
+
+.fs-7 {
+    font-size: 0.75rem;
 }
