@@ -7,43 +7,44 @@ let useranswer = [];
 for (let i = 0; i < quiz.questions.length; i++) {
     useranswer.push(null);
 }
+// check AttemptScore
+const attemptScore = () => {
+    let score = 0;
+    for (let i = 0; i < useranswer.length; i++) {
+        if (useranswer[i] !== null) {
+            score++;
+        }
+    }
+    return score;
+}
+// time
 let timeleft = quiz.timing;
 let timer;
 const startTime = () => {
-    timer=setInterval(() => {
-        if(timeleft == 0 ){
+    timer = setInterval(() => {
+        if (timeleft == 0) {
             finishQuiz();
         }
-        $('timer').textContent=`Time Left : ${timeleft --}` ;
+        $('timer').textContent = `Time Left : ${timeleft--}`;
     }, 1000);
     return timer;
 }
-//  console.log(startTime(quiz.timer))
-const playQuiz =() => {
+// play quiz
+const playQuiz = () => {
     currentIndex = 0;
     $('quizdetails').classList.add('d-none');
     $('quizQuestioncard').classList.remove('d-none');
     $('quizScore').classList.add('d-none');
     playAgain();
     loadQuestion();
-   startTime();
-    
+    startTime();
 }
-const loadDetail = () => {
-    $('cardHeader').innerText = quiz.title;
-    $('totalQuestions').innerText = 'Total Questions :- ' + quiz.questions.length;
-    $('cardTime').innerText = 'Total Time :- ' + quiz.timing + 's';
-    let termsHTML = '';
-    quiz.term.forEach(item => {
-        termsHTML += `<p class="my-2 mx-2">➤ ${item}</p>`;
-    });
-    $('cardterm').innerHTML = termsHTML;
+// user Ans 
+const showAns = (i) => {
+    useranswer[currentIndex] = i;
+    loadQuestion();
 }
-$('cardButton').addEventListener('click', playQuiz);
-const showAns =(i) => {
-    useranswer[currentIndex] =  i; 
-    loadQuestion(); 
-}
+//ans check 
 const ansCheck = () => {
     let right = 0;
     let wrong = 0;
@@ -61,15 +62,18 @@ const ansCheck = () => {
     }
     return { right, wrong, unattempted };
 };
-const attemptScore = () => {
-    let score = 0;
-    for(let i = 0; i < useranswer.length ; i++){
-         if(useranswer[i] !== null){
-            score++;
-         }
-    }
-    return score;
+// starting details 
+const loadDetail = () => {
+    $('cardHeader').innerText = quiz.title;
+    $('totalQuestions').innerText = 'Total Questions :- ' + quiz.questions.length;
+    $('cardTime').innerText = 'Total Time :- ' + quiz.timing + 's';
+    let termsHTML = '';
+    quiz.term.forEach(item => {
+        termsHTML += `<p class="my-2 mx-2">➤ ${item}</p>`;
+    });
+    $('cardterm').innerHTML = termsHTML;
 }
+$('cardButton').addEventListener('click', playQuiz);
 loadDetail();
 // qustion card
 const loadQuestion = () => {
@@ -84,7 +88,7 @@ const loadQuestion = () => {
     const optionsymbol = ["A", "B", "C", "D"]
     const optionsContainer = $('quizOptionContainer');
     optionsContainer.className = 'row gx-3';
-    $('quizOptionContainer').innerHTML=''
+    $('quizOptionContainer').innerHTML = ''
     quiz.questions[currentIndex].options.forEach((option, index) => {
         const col = document.createElement('div');
         col.className = 'col-md-5';
@@ -99,15 +103,16 @@ const loadQuestion = () => {
         });
     });
 
-    $('nextOption').textContent = (currentIndex < quiz.questions.length - 1) ? `Next` : `Finish` ;
+    $('nextOption').textContent = (currentIndex < quiz.questions.length - 1) ? `Next` : `Finish`;
 }
 loadQuestion();
+// last page
 const getQuizScore = () => {
     let result = ansCheck();
     $('scoreNumber').textContent = `${attemptScore()} / ${quiz.questions.length}`;
     $('ansRight').textContent = `${result.right}`;
     $('ansWrong').textContent = `${result.wrong}`;
-    
+
 }
 
 const finishQuiz = () => {
@@ -119,6 +124,7 @@ const finishQuiz = () => {
     clearInterval(timer);
     ansCheck();
 }
+
 const handleNext = () => {
     if (currentIndex < quiz.questions.length - 1) {
         currentIndex++;
@@ -127,12 +133,19 @@ const handleNext = () => {
         finishQuiz();
     }
 }
-const playAgain =( ) => {
+const handlePrev = () => {
+    if (currentIndex > 0) {
+        currentIndex--;
+        loadQuestion();
+    }
+}
+const playAgain = () => {
     currentIndex = 0;
+    useranswer = new Array(quiz.questions.length).fill(null);
     attemptScore();
-    score = 0
     loadQuestion();
     timeleft = quiz.timing;
 }
-   $('nextOption').addEventListener('click', handleNext);
-   $('playAgain').addEventListener('click', playQuiz);
+$('nextOption').addEventListener('click', handleNext);
+$('prevOption').addEventListener('click', handlePrev);
+$('playAgain').addEventListener('click', playQuiz);

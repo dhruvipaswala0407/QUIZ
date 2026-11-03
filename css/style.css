@@ -155,11 +155,11 @@ body {
 }
 
 .table>:not(caption)>*>* {
-    background-color: var(--bg-card);
+    background-color:#18090900;
     color: var(--text-muted);
 }
 
-.score-circle {
+.score-circle { 
     position: relative;
     width: 130px;
     height: 130px;

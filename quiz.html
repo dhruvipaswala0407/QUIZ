@@ -69,6 +69,7 @@
         </nav>
     </header>
     <main>
+        <!-- Details -->
         <section class="quizdetails" id="quizdetails">
             <div class="container my-5">
                 <div class="hero-main-card rounded-4">
@@ -84,6 +85,7 @@
                 </div>
             </div>
         </section>
+        <!-- Quation Card -->
         <section class="quizQuestions d-none" id="quizQuestioncard">
             <div class="container">
                 <div class="hero-main-card rounded-4 quizheader">
@@ -112,7 +114,9 @@
                             <div class="col-1 mx-4" id="totalbar"></div>
                         </div>
 
-                        <div class="d-flex justify-content-end">
+                        <div class="d-flex justify-content-between">
+                            <button type="button" class="btn btn-outline-danger m-3 rounded-3 p-2"
+                                id="prevOption">Previous</button>
                             <button type="button" class="btn btn-outline-danger m-3 rounded-3 p-2"
                                 id="nextOption">next</button>
                         </div>
@@ -120,6 +124,7 @@
                 </div>
             </div>
         </section>
+        <!-- Result Card -->
         <section class="ScoreBar d-none" id="quizScore">
             <div class="container">
                 <div class="hero-main-card text-center rounded-4">
@@ -135,8 +140,8 @@
                     </div>
                     <div class="d-flex justify-content-center mt-1 mb-1">
                         <div class="d-flex justify-content-evenly" style="width:500px;">
-                            <div class="ansRight px-5 py-4 rounded-3" id="ansRight">b</div>
-                            <div class="ansWrong px-5 py-4 rounded-3" id="ansWrong">c</div>
+                            <div class="ansRight px-5 py-4 rounded-3" id="ansRight"></div>
+                            <div class="ansWrong px-5 py-4 rounded-3" id="ansWrong"></div>
                         </div>
                     </div>
                     <div>
